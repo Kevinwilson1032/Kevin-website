@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kevin Wilson | Portfolio</title>
+  <style>
+  body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #f0f7ff; /* Swapped: now light blue */
+    color: #333;
+    animation: fadeIn 1s ease-in;
+  }
+  #intro-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: #0d47a1;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  animation: fadeOut 1s ease 2s forwards;
+}
+
+.intro-text {
+  font-size: 3rem;
+  font-weight: bold;
+  text-align: center;
+  animation: scaleUp 1.5s ease-in-out, glow 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes scaleUp {
+  from { transform: scale(0.8); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+@keyframes glow {
+  from { text-shadow: 0 0 10px white, 0 0 20px #0d47a1; }
+  to { text-shadow: 0 0 20px white, 0 0 40px #0d47a1; }
+}
+
+@keyframes fadeOut {
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+/*intro*/
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    header, footer {
+      background: #0d47a1;
+      color: white;
+      text-align: center;
+      padding: 1.5rem 0;
+      box-shadow: 0 2px 5px rgb(255, 255, 255);
+      animation: slideDown 1s ease-in-out;
+    }
+
+    @keyframes slideDown {
+      from { transform: translateY(-100%); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    nav a {
+      color: white;
+      margin: 0 20px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #80d8ff;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 20px;
+      animation: fadeIn 1.2s ease-in-out;
+    }
+
+    header h1 {
+  font-size: 3.5rem;
+  font-weight: bold;
+  color: #ffffff;
+}
+
+
+    h2 {
+      font-size: 2rem;
+      margin-top: 2rem;
+      border-bottom: 2px solid #333;
+      display: inline-block;
+      padding-bottom: 5px;
+    }
+
+  /* Projects styling */
+.projects .project {
+  background: #d4e1f6;
+  padding: 20px;
+  margin: 20px 0;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.projects .project:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 0 12px 3px rgba(13, 71, 161, 0.7);
+  border-color: #0d47a1;
+}
+
+/* Skills styling */
+.skills .skill {
+  flex: 1 1 280px;
+  max-width: 300px;
+  background: #f0f7ff;
+  border: 2px solid #0d47a1;
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(13, 71, 161, 0.4);
+  font-weight: 600;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.skills .skill:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 0 12px 3px rgba(13, 71, 161, 0.7);
+  border-color: #0d47a1;
+}
+
+    
+
+    .projects .project:hover, .skills .skill:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    }
+
+    /* Skills container for tree style */
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+      margin-top: 20px;
+    }
+    .skill {
+      flex: 1 1 280px;
+      max-width: 300px;
+
+      border-radius: 15px;
+      padding: 20px;
+      box-shadow:
+        0 0 10px rgba(13, 71, 161, 0.4);
+      font-weight: 600;
+    }
+    .skill h3 {
+      margin-top: 0;
+      color: #0d47a1;
+    }
+    .skill ul {
+      margin: 10px 0 0 20px;
+      padding: 0;
+      list-style-type: disc;
+      color: #333;
+      font-weight: normal;
+    }
+   
+    #socials {
+  margin-top: 40px;
+  text-align: center;
+}
+
+.social-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 10px;
+}
+
+.social-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #f0f7ff;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  cursor: pointer;
+  text-decoration: none; /* Remove underline if any */
+}
+
+.social-icon:hover {
+  background-color: #0d47a1;
+  transform: scale(1.1);
+}
+
+.social-icon.linkedin:hover svg {
+  fill: white;
+}
+
+.social-icon.gmail:hover svg {
+  fill: white;
+}
+
+/* Hobbies styling similar to skills */
+.hobbies {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.hobby {
+  flex: 1 1 280px;
+  max-width: 300px;
+  background: #f0f7ff;
+  border: 2px solid #0d47a1;
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(13, 71, 161, 0.4);
+  font-weight: 600;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  position: relative;
+  overflow: visible;
+  cursor: pointer;
+}
+
+.hobby:hover {
+  transform: translateY(-6px);
+  border-color: #0d47a1;
+  box-shadow: 0 0 12px 3px rgba(13, 71, 161, 0.7);
+}
+#hobbies {
+  padding: 2rem;
+  text-align: center;
+}
+
+.hobby-tree {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.hobby-box {
+  background: #e0f7fa;
+  border: 2px solid #00bcd4;
+  padding: 1rem 1.5rem;
+  border-radius: 12px;
+  font-weight: 500;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  cursor: pointer;
+}
+
+.hobby-box:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 12px #00bcd4;
+}
+
+/*confetti*/
+
+.confetti {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  pointer-events: none;
+  opacity: 1;
+  background-color: red; /* fallback color, overridden by JS */
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  will-change: transform, opacity;
+  z-index: 1000;
+}
+
+
+/* Contact form styles */
+.contact-form {
+  margin-top: 1rem;
+  padding: 30px;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05);
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 15px;
+  margin: 10px 0 20px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  font-family: inherit;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: #0d47a1;
+  box-shadow: 0 0 0 3px rgba(13, 71, 161, 0.1);
+  outline: none;
+}
+
+.contact-form button {
+  width: 100%;
+  padding: 14px;
+  background: linear-gradient(to right, #0d47a1, #1565c0);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.4s ease, transform 0.2s ease;
+}
+
+.contact-form button:hover {
+  background: linear-gradient(to right, #1565c0, #1976d2);
+  transform: scale(1.03);
+}
+#about {
+  background: #d4e1f6;
+  padding: 40px;
+  margin: 40px auto;
+  max-width: 900px;
+  border-radius: 15px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+  text-align: center;
+  animation: fadeIn 1s ease-in;
+  transition: transform 0.3s ease;
+}
+
+#about:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.1);
+}
+
+#about h2 {
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 20px;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.05);
+}
+
+#about p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #333;
+}
+
+#about p span {
+  color: #081b2e;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+#about p span:hover {
+  color: #0056b3;
+}
+  </style>
+</head>
+<body>
+    <div id="intro-screen">
+        <h1 class="intro-text">Hello, my name is Kevin</h1>
+      </div>
+    <header>
+        <h1>Kevin Wilson</h1>
+        <nav>
+          <a href="#about">About</a>
+          <a href="#projects">Projects</a>
+          <a href="#skills">Skills</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </header>
+
+  <div class="container">
+    <section id="about">
+      <h2>About Me</h2\>
+      <p>IT Professional with <span>5.5 years</span> of experience as a <span>Knowledge Management Specialist.</span></p>
+      <p>Certified by <span>ISTQB</span> with a strong foundation in software testing and quality assurance.</p> 
+      <p>Adept at crossfunctional collaboration, problem-solving, and technical documentation. </p>
+      <p>With a strong foundation in Java, and SQL, I have built backend systems that are efficient and scalable. I am passionate about clean code, continuous learning, and applying technology to solve real-world problems. </p>
+      <p> I enjoy collaborating with cross-functional teams to deliver impactful digital solutions.</p>
+    </section>
+
+    <section id="projects">
+      <h2>Projects</h2>
+      <div class="projects">
+        <div class="project">
+          <h3>Test Automation Framework</h3>
+          <p>Built automation scripts using Selenium and TestNG, improving test coverage by 60%.</p>
+        </div>
+        <div class="project">
+          <h3>Data Reporting Dashboards</h3>
+          <p>Used Power BI and SQL to create insightful dashboards for business decision-making.</p>
+        </div>
+        <div class="project">
+          <h3>Deloitte Workday and ServiceNow Transfer from Salesforce</h3>
+          <ul>
+            <li>Formatted and optimized extractions of over a thousand policies on Salesforce.</li>
+            <li>Designed and executed test cases for ServiceNow and Workday modules.</li>
+            <li>Created and maintained test scenarios, scripts, and data for HR, Payroll, and ITSM workflows.</li>
+            <li>Performed end-to-end testing of ServiceNow modules including Incident, Change, Request, and Knowledge Management.</li>
+            <li>Validated Workday business processes for compliance with business rules.</li>
+          </ul>
+        </div>
+        <div class="project">
+          <h3>Deloitte Recognition Pages</h3>
+          <ul>
+            <li>Created and maintained multiple webpages within SharePoint.</li>
+            <li>Used Agile and SCRUM methods with global stakeholders using Tableau and Excel within SharePoint Libraries.</li>
+          </ul>
+        </div>
+        <div class="project">
+          <h3>Deloitte Talent on Demand</h3>
+          <ul>
+            <li>Created and maintained global content within Talent on Demand webpages.</li>
+            <li>Refined audience lists and information using data cleaning techniques.</li>
+            <li>Formatted and tested content on webpages.</li>
+            <li>Reviewed and verified content with stakeholders.</li>
+          </ul>
+        </div>
+        <div class="project">
+            <h3>Enterprise Java App - Deloitte</h3>
+            <p>Developed and maintained scalable Java-based applications as part of a cross-functional team.</p>
+          </div>
+        <div class="project">
+          <h3>Traffic Sign Recognition Using Convolutional Neural Networks</h3>
+          <ul>
+            <li>A machine learning project using Python leveraging big data of traffic signs.</li>
+            <li>Used CNN to visualize traffic sign types and split images into various stages.</li>
+          </ul>
+        </div>
+        <div class="project">
+          <h3>Customer Consumption Optimization Using K-Means Clustering</h3>
+          <ul>
+            <li>Applied K-Means clustering to geographic and demographic data to determine optimal retail store locations, maximizing profitability and minimizing market overlap.</li>
+            <li>Analyzed customer footfall, sales trends, and regional spending capacity using Tableau, Matplotlib, and Seaborn.</li>
+            <li>Built geospatial visualization dashboards integrating K-Means output with interactive maps to communicate insights to stakeholders.</li>
+            <li>Preprocessed large datasets with Pandas and Scikit-learn to normalize features before clustering analysis.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <h2>Skills</h2>
+      <div class="skills">
+        <div class="skill">
+          <h3>Programming Languages</h3>
+          <ul>
+            <li>Java</li>
+            <li>SQL</li>
+            <li>XML</li>
+            <li>JavaScript</li>
+            <li>Python</li>
+          </ul>
+        </div>
+        <div class="skill">
+          <h3>Tools & Technologies</h3>
+          <ul>
+            <li>Power BI</li>
+            <li>Selenium</li>
+            <li>TestNG</li>
+            <li>Git</li>
+            <li>ETL frameworks</li>
+            <li>Tableau</li>
+            <li>SharePoint</li>
+            <li>Workday</li>
+            <li>ServiceNow</li>
+          </ul>
+        </div>
+        <div class="skill">
+          <h3>Professional Expertise</h3>
+          <ul>
+            <li>Software Development</li>
+            <li>Test Automation</li>
+            <li>Data Analysis</li>
+            <li>Problem Solving</li>
+            <li>Agile Collaboration</li>
+            <li>Machine Learning (CNN, K-Means)</li>
+            <li>Data Cleaning & Preprocessing</li>
+            <li>Business Process Validation</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="hobbies">
+        <h2>Hobbies</h2>
+        <div class="hobby-tree">
+          <div class="hobby-box">Blender 3D Animation</div>
+          <div class="hobby-box">Video Editing</div>
+          <div class="hobby-box">Music Creation</div>
+          <div class="hobby-box">Guitar</div>
+          <div class="hobby-box">Learning New Things</div>
+        </div>
+      </section>
+      
+
+    <section id="socials">
+        <h2>Socials</h2>
+        <div class="social-buttons">
+          <a
+            href="https://www.linkedin.com/in/kevinwilson1032"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="LinkedIn"
+            class="social-icon linkedin"
+          >
+            <!-- LinkedIn SVG icon -->
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="28"
+              height="28"
+              viewBox="0 0 24 24"
+              fill="#0d47a1"
+            >
+              <path
+                d="M19 0h-14c-2.76 0-5 2.24-5 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5v-14c0-2.76-2.24-5-5-5zm-11 19h-3v-10h3v10zm-1.5-11.27c-.97 0-1.75-.78-1.75-1.75s.78-1.75 1.75-1.75 1.75.78 1.75 1.75-.78 1.75-1.75 1.75zm13.5 11.27h-3v-5.5c0-1.38-1.12-2.5-2.5-2.5s-2.5 1.12-2.5 2.5v5.5h-3v-10h3v1.5c.82-1.12 2.15-1.5 3.32-1.5 2.37 0 4.18 1.91 4.18 4.5v5.5z"
+              />
+            </svg>
+          </a>
+
+          <a
+            href="mailto:kevinwilson1032@gmail.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Gmail"
+            class="social-icon gmail"
+          >
+            <!-- Gmail SVG icon -->
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="28"
+              height="28"
+              viewBox="0 0 24 24"
+              fill="#0d47a1"
+            >
+              <path
+                d="M12 13.5l-11-7v11c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2v-11l-11 7zm11-9.5v-1c0-1.1-.9-2-2-2h-18c-1.1 0-2 .9-2 2v1l11 7 11-7z"
+              />
+            </svg>
+          </a>
+        </div>
+      </section>
+
+    <section id="contact">
+      <h2>Contact Me</h2>
+      <form
+        action="mailto:kevinwilson1032@gmail.com"
+        method="post"
+        enctype="text/plain"
+        class="contact-form"
+      >
+        <input type="text" name="name" placeholder="Your name" required />
+        <input type="email" name="email" placeholder="Your email" required />
+        <textarea name="message" rows="6" placeholder="Your message" required></textarea>
+        <button type="submit">Send</button>
+      </form>
+    </section>
+  </div>
+
+  <footer>
+    <p>© 2025 Kevin Wilson. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // Select all elements with class 'hobby'
+    const hobbies = document.querySelectorAll('.hobby');
+  
+    // Attach event listeners to each hobby box
+    hobbies.forEach(hobby => {
+      hobby.style.position = 'relative'; // ensure relative positioning for absolute confetti
+  
+      hobby.addEventListener('mouseenter', () => {
+        createConfetti(hobby);
+      });
+    });
+  
+    function createConfetti(container) {
+      const confettiCount = 15;
+      for (let i = 0; i < confettiCount; i++) {
+        const confetti = document.createElement('div');
+        confetti.classList.add('confetti');
+        confetti.style.position = 'absolute';
+        confetti.style.width = '8px';
+        confetti.style.height = '8px';
+        confetti.style.backgroundColor = randomColor();
+        confetti.style.borderRadius = '50%';
+        confetti.style.top = '50%';
+        confetti.style.left = '50%';
+        confetti.style.pointerEvents = 'none';
+        confetti.style.opacity = '1';
+        confetti.style.transform = `translate(0, 0)`;
+        confetti.style.zIndex = '1000';
+  
+        container.appendChild(confetti);
+  
+        const destinationX = (Math.random() - 0.5) * 300;
+        const destinationY = (Math.random() - 1) * 300;
+  
+        confetti.animate(
+          [
+            { transform: 'translate(0, 0)', opacity: 1 },
+            { transform: `translate(${destinationX}px, ${destinationY}px) rotate(${Math.random() * 360}deg)`, opacity: 0 }
+          ],
+          {
+            duration: 1500 + Math.random() * 1000,
+            easing: 'ease-out',
+            fill: 'forwards',
+          }
+        );
+  
+        setTimeout(() => {
+          confetti.remove();
+        }, 2500);
+      }
+    }
+  
+    function randomColor() {
+      const colors = ['#0d47a1', '#1976d2', '#64b5f6', '#ff4081', '#fbc02d', '#4caf50'];
+      return colors[Math.floor(Math.random() * colors.length)];
+    }
+  </script>
+</body>
+</html>
